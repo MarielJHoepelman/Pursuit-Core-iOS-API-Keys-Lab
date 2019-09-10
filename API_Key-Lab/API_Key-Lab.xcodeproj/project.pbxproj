@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		58FF95BF2326E4840018C04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF95BE2326E4840018C04E /* AppDelegate.swift */; };
-		58FF95C12326E4840018C04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF95C02326E4840018C04E /* ViewController.swift */; };
 		58FF95C42326E4840018C04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FF95C22326E4840018C04E /* Main.storyboard */; };
 		58FF95C62326E4850018C04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58FF95C52326E4850018C04E /* Assets.xcassets */; };
 		58FF95C92326E4850018C04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FF95C72326E4850018C04E /* LaunchScreen.storyboard */; };
 		58FF95D42326E4850018C04E /* API_Key_LabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF95D32326E4850018C04E /* API_Key_LabTests.swift */; };
+		58FF95DF2326EAEB0018C04E /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF95DE2326EAEB0018C04E /* ArtistModel.swift */; };
+		58FF95E32326EDDB0018C04E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF95E22326EDDB0018C04E /* NetworkManager.swift */; };
+		58FF95E62326EE220018C04E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF95E52326EE220018C04E /* AppError.swift */; };
+		58FF95E82326EEEC0018C04E /* ArtistSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF95E72326EEEC0018C04E /* ArtistSearchViewController.swift */; };
+		58FF95EB232722DA0018C04E /* ArtistsAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF95EA232722DA0018C04E /* ArtistsAPIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +32,6 @@
 /* Begin PBXFileReference section */
 		58FF95BB2326E4840018C04E /* API_Key-Lab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API_Key-Lab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FF95BE2326E4840018C04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		58FF95C02326E4840018C04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		58FF95C32326E4840018C04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58FF95C52326E4850018C04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58FF95C82326E4850018C04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +39,11 @@
 		58FF95CF2326E4850018C04E /* API_Key-LabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "API_Key-LabTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FF95D32326E4850018C04E /* API_Key_LabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_Key_LabTests.swift; sourceTree = "<group>"; };
 		58FF95D52326E4850018C04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58FF95DE2326EAEB0018C04E /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
+		58FF95E22326EDDB0018C04E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		58FF95E52326EE220018C04E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		58FF95E72326EEEC0018C04E /* ArtistSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchViewController.swift; sourceTree = "<group>"; };
+		58FF95EA232722DA0018C04E /* ArtistsAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsAPIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +85,10 @@
 		58FF95BD2326E4840018C04E /* API_Key-Lab */ = {
 			isa = PBXGroup;
 			children = (
+				58FF95E42326EDE50018C04E /* HelperFiles */,
 				58FF95BE2326E4840018C04E /* AppDelegate.swift */,
-				58FF95C02326E4840018C04E /* ViewController.swift */,
+				58FF95E92326EEF20018C04E /* Controller */,
+				58FF95E12326EB0B0018C04E /* Model */,
 				58FF95C22326E4840018C04E /* Main.storyboard */,
 				58FF95C52326E4850018C04E /* Assets.xcassets */,
 				58FF95C72326E4850018C04E /* LaunchScreen.storyboard */,
@@ -94,6 +104,32 @@
 				58FF95D52326E4850018C04E /* Info.plist */,
 			);
 			path = "API_Key-LabTests";
+			sourceTree = "<group>";
+		};
+		58FF95E12326EB0B0018C04E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				58FF95DE2326EAEB0018C04E /* ArtistModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		58FF95E42326EDE50018C04E /* HelperFiles */ = {
+			isa = PBXGroup;
+			children = (
+				58FF95EA232722DA0018C04E /* ArtistsAPIHelper.swift */,
+				58FF95E22326EDDB0018C04E /* NetworkManager.swift */,
+				58FF95E52326EE220018C04E /* AppError.swift */,
+			);
+			path = HelperFiles;
+			sourceTree = "<group>";
+		};
+		58FF95E92326EEF20018C04E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				58FF95E72326EEEC0018C04E /* ArtistSearchViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +233,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58FF95C12326E4840018C04E /* ViewController.swift in Sources */,
+				58FF95E62326EE220018C04E /* AppError.swift in Sources */,
+				58FF95E32326EDDB0018C04E /* NetworkManager.swift in Sources */,
+				58FF95E82326EEEC0018C04E /* ArtistSearchViewController.swift in Sources */,
+				58FF95DF2326EAEB0018C04E /* ArtistModel.swift in Sources */,
 				58FF95BF2326E4840018C04E /* AppDelegate.swift in Sources */,
+				58FF95EB232722DA0018C04E /* ArtistsAPIHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
