@@ -49,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="ArtistsTableView" destination="2Em-zg-Vny" id="9bS-Ae-6xI"/>
+                        <outlet property="searchBar" destination="Ybz-i5-877" id="VaY-og-g8b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

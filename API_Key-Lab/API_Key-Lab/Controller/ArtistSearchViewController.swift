@@ -12,6 +12,9 @@ class ArtistSearchViewController: UIViewController {
     
     @IBOutlet weak var ArtistsTableView: UITableView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     var artists = [TrackList]() {
         didSet {
             ArtistsTableView.reloadData()
@@ -19,16 +22,17 @@ class ArtistSearchViewController: UIViewController {
         }
     }
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ArtistsTableView.dataSource = self
         ArtistsTableView.delegate = self
-        loadData()
-
+        searchBar.delegate = self
     }
 
     private func loadData() {
-         let url = "https://api.musixmatch.com/ws/1.1/track.search?q=john%20mayer&apikey=32df5b935b0a457b57fb134f46967ebc&f_has_lyrics=true"
+         let url = "https://api.musixmatch.com/ws/1.1/track.search?q=\(searchString)&apikey=32df5b935b0a457b57fb134f46967ebc&f_has_lyrics=true"
         
         ArtistAPIHelper.shared.getArtists(url: url) {(result) in
             DispatchQueue.main.async {
@@ -41,6 +45,20 @@ class ArtistSearchViewController: UIViewController {
             }
         }
     }
+    
+    var searchString: String = "" {
+        didSet {
+            loadData()
+            ArtistsTableView.reloadData()
+        }
+    }
+  
+    func showNotFoundAlert() {
+        let alert = UIAlertController(title: "\u{1F5E3} Contact not found!", message: "Please try again", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
+    }
 }
 
 extension ArtistSearchViewController: UITableViewDataSource {
@@ -50,12 +68,23 @@ extension ArtistSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ArtistsTableView.dequeueReusableCell(withIdentifier: "ArtistSongsDVC")
-        cell?.textLabel?.text = artists[indexPath.row].track.artist_name
+        cell?.textLabel?.text = "\(artists[indexPath.row].track.artist_name) - \(artists[indexPath.row].track.track_name)"
         return cell!
     }
 
 }
 
 extension ArtistSearchViewController: UITableViewDelegate {
+
+}
+
+
+extension ArtistSearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchString = searchBar.text!
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchString = searchBar.text!
+    }
 }
